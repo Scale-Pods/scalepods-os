@@ -36,7 +36,7 @@ const TEMPLATES = [
 ];
 
 const FIRST_APPS = [
-  { id: "sales-crm", label: "Leads & CRM", icon: Target, description: "Contacts, companies and deal pipeline." },
+  { id: "sales-outreach-system", label: "Outreach System", icon: Target, description: "Email, WhatsApp, voice and LinkedIn outreach in one place." },
   { id: "ops-customer-care", label: "Customer Care", icon: Headset, description: "Unified inbox with AI-suggested replies." },
   { id: "custom-studio-inventory-intel", label: "Inventory Intel", icon: Blocks, description: "Example custom module for SKU tracking." },
 ];

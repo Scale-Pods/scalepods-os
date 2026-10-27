@@ -10,10 +10,7 @@ import type { AppManifest } from "@/lib/types/manifest";
 import { manifest as masterDashboard } from "./manifests/home-dashboard";
 import { manifest as executiveBoard } from "./manifests/home-executive-board";
 import { manifest as hrRecruit } from "./manifests/hr-recruit";
-import { manifest as salesCrm } from "./manifests/sales-crm";
-import { manifest as salesOutreach } from "./manifests/sales-outreach";
-import { manifest as salesLeadResponse } from "./manifests/sales-lead-response";
-import { manifest as salesRepActivity } from "./manifests/sales-rep-activity";
+import { manifest as salesOutreachSystem } from "./manifests/sales-outreach-system";
 import { manifest as marketingContentOs } from "./manifests/marketing-content-os";
 import { manifest as opsCustomerCare } from "./manifests/ops-customer-care";
 import { manifest as opsReceivables } from "./manifests/ops-receivables";
@@ -23,10 +20,7 @@ export const APP_REGISTRY: AppManifest[] = [
   masterDashboard,
   executiveBoard,
   hrRecruit,
-  salesCrm,
-  salesLeadResponse,
-  salesOutreach,
-  salesRepActivity,
+  salesOutreachSystem,
   marketingContentOs,
   opsCustomerCare,
   opsReceivables,

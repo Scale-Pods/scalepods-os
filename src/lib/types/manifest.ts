@@ -14,6 +14,7 @@ export interface AppNavItem {
   label: string;
   path: string; // relative to basePath
   icon?: keyof typeof import("lucide-react");
+  children?: { label: string; path: string }[]; // relative to basePath; shown only while the parent item is active
 }
 
 export interface AppManifest {
@@ -23,7 +24,7 @@ export interface AppManifest {
   description: string;
   icon: string; // lucide-react icon name
   basePath: string;
-  nav: { label: string; path: string }[];
+  nav: AppNavItem[];
   requiredPlan: PlanId;
   permissions: string[];
   dashboardWidgets: string[];

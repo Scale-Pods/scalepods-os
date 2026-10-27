@@ -12,10 +12,8 @@ export const ORGS: Organization[] = [
       "home-dashboard",
       "home-executive-board",
       "hr-recruit",
-      "sales-crm",
-      "sales-lead-response",
-      "sales-outreach",
-      "sales-rep-activity",
+      "sales-outreach-system",
+      "ops-receivables",
     ],
   },
   {
@@ -27,11 +25,10 @@ export const ORGS: Organization[] = [
     region: "uae",
     installedApps: [
       "home-dashboard",
-      "sales-crm",
-      "sales-lead-response",
-      "sales-rep-activity",
+      "sales-outreach-system",
       "marketing-content-os",
       "ops-customer-care",
+      "ops-receivables",
     ],
   },
 ];

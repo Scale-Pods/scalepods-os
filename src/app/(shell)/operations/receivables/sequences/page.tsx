@@ -1,5 +1,5 @@
-import { SequencesPage } from "@/components/operations/sequences";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <SequencesPage />;
+  redirect("/operations/receivables/dashboard");
 }

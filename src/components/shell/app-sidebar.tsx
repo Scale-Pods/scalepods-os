@@ -134,15 +134,40 @@ export function AppSidebar() {
                             const href = `${app.basePath}${item.path}`;
                             const subActive = pathname.startsWith(href);
                             return (
-                              <SidebarMenuSubItem key={item.path}>
-                                <SidebarMenuSubButton asChild isActive={subActive}>
-                                  <Link href={href}>
-                                    <span className={cn(subActive && "font-medium text-primary")}>
-                                      {item.label}
-                                    </span>
-                                  </Link>
-                                </SidebarMenuSubButton>
-                              </SidebarMenuSubItem>
+                              <React.Fragment key={item.path}>
+                                <SidebarMenuSubItem>
+                                  <SidebarMenuSubButton asChild isActive={subActive}>
+                                    <Link href={href}>
+                                      <span className={cn(subActive && "font-medium text-primary")}>
+                                        {item.label}
+                                      </span>
+                                    </Link>
+                                  </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+                                {subActive && item.children && item.children.length > 0 && (
+                                  <li className="ml-3.5 border-l pl-2.5">
+                                    <ul className="flex flex-col gap-0.5 py-0.5">
+                                      {item.children.map((child) => {
+                                        const childHref = `${app.basePath}${child.path}`;
+                                        const childActive = pathname === childHref || pathname.startsWith(`${childHref}/`);
+                                        return (
+                                          <li key={child.path}>
+                                            <Link
+                                              href={childHref}
+                                              className={cn(
+                                                "block truncate rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                                                childActive && "bg-sidebar-accent font-medium text-sidebar-accent-foreground"
+                                              )}
+                                            >
+                                              {child.label}
+                                            </Link>
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  </li>
+                                )}
+                              </React.Fragment>
                             );
                           })}
                         </SidebarMenuSub>

@@ -1,5 +1,5 @@
-import { InvoicesPage } from "@/components/operations/invoices";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <InvoicesPage />;
+  redirect("/operations/receivables/upload-invoice");
 }

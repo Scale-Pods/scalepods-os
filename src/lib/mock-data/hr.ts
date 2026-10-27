@@ -378,7 +378,8 @@ export const CANDIDATE_HR_FIELDS: CandidateHrFields[] = candidateContacts.map((c
   else if (stageRoll === 8) stage = "offer";
   else stage = i % 20 === 9 ? "hired" : "rejected";
 
-  const baseScore = 55 + Math.floor(rand() * 40); // 55-94
+  // Pure function of the index (not the shared rand() stream) so server and client agree.
+  const baseScore = 55 + (Math.imul(i + 1, 2654435761) >>> 0) % 40; // 55-94
   const fitScore = stage === "rejected" ? Math.max(35, baseScore - 25) : stage === "hired" ? Math.min(98, baseScore + 10) : baseScore;
 
   return {

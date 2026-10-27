@@ -10,6 +10,8 @@ interface KpiCardProps {
   trendValue?: string;
   trendGood?: boolean; // whether "up" is good (default true)
   icon?: React.ReactNode;
+  iconClassName?: string; // optional colored chip background+text classes for icon
+  onClick?: () => void;
 }
 
 export function KpiCard({
@@ -20,15 +22,29 @@ export function KpiCard({
   trendValue,
   trendGood = true,
   icon,
+  iconClassName,
+  onClick,
 }: KpiCardProps) {
   const isPositive = trend === "up" ? trendGood : trend === "down" ? !trendGood : null;
 
   return (
-    <Card className="gap-2 py-4">
+    <Card
+      className={cn("gap-2 py-4", onClick && "cursor-pointer transition-shadow hover:shadow-md")}
+      onClick={onClick}
+    >
       <CardContent className="px-4">
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted-foreground">{label}</p>
-          {icon && <div className="text-muted-foreground">{icon}</div>}
+          {icon && (
+            <div
+              className={cn(
+                "text-muted-foreground",
+                iconClassName && cn("flex size-7 items-center justify-center rounded-lg", iconClassName)
+              )}
+            >
+              {icon}
+            </div>
+          )}
         </div>
         <div className="mt-1.5 flex items-baseline gap-2">
           <p className="text-2xl font-semibold tracking-tight">{value}</p>
