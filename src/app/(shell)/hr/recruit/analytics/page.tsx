@@ -1,5 +1,5 @@
-import { AnalyticsClient } from "./analytics-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <AnalyticsClient />;
+  redirect("/hr/recruit/dashboard");
 }

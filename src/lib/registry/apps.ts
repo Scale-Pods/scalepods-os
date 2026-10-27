@@ -14,6 +14,7 @@ import { manifest as salesOutreachSystem } from "./manifests/sales-outreach-syst
 import { manifest as marketingContentOs } from "./manifests/marketing-content-os";
 import { manifest as opsCustomerCare } from "./manifests/ops-customer-care";
 import { manifest as opsReceivables } from "./manifests/ops-receivables";
+import { manifest as opsAuditChecker } from "./manifests/ops-audit-checker";
 import { manifest as customStudio } from "./manifests/custom-studio";
 
 export const APP_REGISTRY: AppManifest[] = [
@@ -24,6 +25,7 @@ export const APP_REGISTRY: AppManifest[] = [
   marketingContentOs,
   opsCustomerCare,
   opsReceivables,
+  opsAuditChecker,
   customStudio,
 ];
 
@@ -41,7 +43,14 @@ export function findAppByPath(path: string) {
 
 const PLAN_ORDER = ["free", "basic", "growth", "enterprise"] as const;
 
+/**
+ * Demo switch: while true every module is unlocked for every org regardless of
+ * plan. Flip to false (and trim each org's installedApps) to restore gating.
+ */
+export const UNLOCK_ALL_APPS_FOR_DEMO = true;
+
 export function isAppUnlocked(app: AppManifest, orgPlan: string) {
+  if (UNLOCK_ALL_APPS_FOR_DEMO) return true;
   const orgIdx = PLAN_ORDER.indexOf(orgPlan as (typeof PLAN_ORDER)[number]);
   const reqIdx = PLAN_ORDER.indexOf(app.requiredPlan);
   return orgIdx >= reqIdx;

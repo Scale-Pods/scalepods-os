@@ -1,5 +1,5 @@
-import { PipelineClient } from "./pipeline-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <PipelineClient />;
+  redirect("/hr/recruit/kanban");
 }

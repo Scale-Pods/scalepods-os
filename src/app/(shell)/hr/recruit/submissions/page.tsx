@@ -1,5 +1,5 @@
-import { SubmissionsClient } from "./submissions-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <SubmissionsClient />;
+  redirect("/hr/recruit/campaigns");
 }

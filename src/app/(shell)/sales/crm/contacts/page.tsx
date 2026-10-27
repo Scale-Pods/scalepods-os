@@ -43,7 +43,7 @@ import { Label } from "@/components/ui/label";
 import { useOrg } from "@/lib/org-context";
 import { contactsByOrg, getCompany } from "@/lib/mock-data/contacts";
 import { leadSourceBreakdown, contactTypeBreakdown } from "@/lib/mock-data/sales";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 
 export default function ContactsPage() {
   const { org } = useOrg();
@@ -306,7 +306,7 @@ export default function ContactsPage() {
                     </div>
                   </TableCell>
                   <TableCell>{c.source}</TableCell>
-                  <TableCell>{formatRelative(c.createdAt)}</TableCell>
+                  <TableCell><RelativeTime iso={c.createdAt} /></TableCell>
                 </TableRow>
               ))}
             </TableBody>

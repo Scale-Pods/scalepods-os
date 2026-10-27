@@ -27,7 +27,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { MOCK_LEAD_RESPONSE_FEED, responseTimeTrend, channelVolumeBreakdown } from "@/lib/mock-data/sales";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 import { cn } from "@/lib/utils";
 
 const OUTCOME_LABEL: Record<string, string> = {
@@ -138,7 +138,7 @@ export default function LiveFeedPage() {
                           <p className="text-sm font-medium">{event.leadName}</p>
                           <ChannelIcon channel={event.channel} withLabel />
                         </div>
-                        <p className="text-xs text-muted-foreground">{formatRelative(event.createdAt)}</p>
+                        <p className="text-xs text-muted-foreground"><RelativeTime iso={event.createdAt} /></p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">

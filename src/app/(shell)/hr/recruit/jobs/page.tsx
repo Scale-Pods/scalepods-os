@@ -1,5 +1,5 @@
-import { JobsClient } from "./jobs-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <JobsClient />;
+  redirect("/hr/recruit/campaigns");
 }

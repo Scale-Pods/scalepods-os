@@ -42,9 +42,9 @@ export function CommandPalette() {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Quick actions">
-          <CommandItem onSelect={() => go("/hr/recruit/jobs?new=1")}>
+          <CommandItem onSelect={() => go("/hr/recruit/campaigns/new")}>
             <Plus className="size-4" />
-            New job
+            New campaign
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />

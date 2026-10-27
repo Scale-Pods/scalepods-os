@@ -11,7 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MOCK_COMPANIES, MOCK_CONTACTS } from "@/lib/mock-data/contacts";
 import { MOCK_DEALS, dealsSummaryForCompany } from "@/lib/mock-data/sales";
 import { StageValueBarChart } from "@/components/sales/charts/stage-value-bar-chart";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 
 export default function CompanyDetailPage() {
   const params = useParams<{ id: string }>();
@@ -80,7 +80,7 @@ export default function CompanyDetailPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <StatusBadge status={c.type} />
-                    <span className="text-xs text-muted-foreground">{formatRelative(c.createdAt)}</span>
+                    <span className="text-xs text-muted-foreground"><RelativeTime iso={c.createdAt} /></span>
                   </div>
                 </CardContent>
               </Card>

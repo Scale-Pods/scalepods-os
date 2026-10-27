@@ -35,7 +35,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MOCK_ENROLLMENTS, MOCK_SEQUENCES, sequenceById, enrollmentStatusBreakdown } from "@/lib/mock-data/sales";
 import { MOCK_CONTACTS } from "@/lib/mock-data/contacts";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 
 export default function EnrollmentsPage() {
   const [search, setSearch] = React.useState("");
@@ -146,7 +146,7 @@ export default function EnrollmentsPage() {
                     <TableCell>
                       <StatusBadge status={status} />
                     </TableCell>
-                    <TableCell className="text-muted-foreground">{formatRelative(e.enrolledAt)}</TableCell>
+                    <TableCell className="text-muted-foreground"><RelativeTime iso={e.enrolledAt} /></TableCell>
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>

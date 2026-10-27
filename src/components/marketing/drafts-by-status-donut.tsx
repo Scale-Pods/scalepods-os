@@ -7,8 +7,10 @@ import type { StatusCount } from "@/lib/mock-data/marketing";
 const STATUS_COLORS: Record<StatusCount["status"], string> = {
   draft: "var(--muted-foreground)",
   review: "var(--warning)",
+  sent_back: "var(--destructive)",
   approved: "var(--success)",
   scheduled: "var(--primary)",
+  published: "var(--accent)",
 };
 
 export function DraftsByStatusDonut({ data }: { data: StatusCount[] }) {

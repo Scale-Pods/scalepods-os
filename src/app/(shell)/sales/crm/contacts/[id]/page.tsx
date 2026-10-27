@@ -28,7 +28,8 @@ import { MOCK_CONTACTS, getCompany } from "@/lib/mock-data/contacts";
 import { activitiesForContact, dealsByOrg, contactEngagementSeries } from "@/lib/mock-data/sales";
 import { Sparkline } from "@/components/sales/charts/sparkline";
 import { MEMBERS } from "@/lib/mock-data/orgs";
-import { formatRelative, formatMoney } from "@/lib/format";
+import { formatMoney } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 import type { Activity, Note } from "@/lib/types/core";
 
 const ACTIVITY_ICON: Record<Activity["type"], typeof Mail> = {
@@ -176,7 +177,7 @@ export default function ContactDetailPage() {
                       )}
                       <p className="mt-1 text-xs text-muted-foreground">
                         {rep ? `${rep.name} · ` : ""}
-                        {formatRelative(a.createdAt)}
+                        <RelativeTime iso={a.createdAt} />
                       </p>
                     </div>
                   </div>
@@ -209,7 +210,7 @@ export default function ContactDetailPage() {
                     <CardContent className="px-4 py-3">
                       <p className="text-sm">{n.body}</p>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        {MEMBERS.find((m) => m.id === n.authorId)?.name} · {formatRelative(n.createdAt)}
+                        {MEMBERS.find((m) => m.id === n.authorId)?.name} · <RelativeTime iso={n.createdAt} />
                       </p>
                     </CardContent>
                   </Card>

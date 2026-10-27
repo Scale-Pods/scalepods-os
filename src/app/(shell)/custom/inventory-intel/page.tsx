@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Page() {
-  redirect("/custom/inventory-intel/inventory");
+  redirect("/operations/inventory/dashboard");
 }

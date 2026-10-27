@@ -1,11 +1,11 @@
 import type { DashboardMetric } from "@/lib/mock-data/dashboard-metrics";
-import { MOCK_INVENTORY } from "@/lib/mock-data/custom";
+import { INV_TOTALS } from "@/lib/mock-data/inventory";
 
-const lowStockCount = MOCK_INVENTORY.filter((i) => i.status === "low-stock").length;
-const outOfStockCount = MOCK_INVENTORY.filter((i) => i.status === "out-of-stock").length;
+const lowStockCount = INV_TOTALS.counts["Low Stock"] + INV_TOTALS.counts.Critical;
+const outOfStockCount = INV_TOTALS.counts["Out of Stock"];
 
 /**
- * Mock value for the Custom Studio's dashboard widget, in the same
+ * Dashboard widget for Inventory Intel, in the same
  * {value, context, trend, trendValue} shape as dashboard-metrics.ts.
  */
 export const CUSTOM_METRICS: Record<string, DashboardMetric> = {

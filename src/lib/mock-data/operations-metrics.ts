@@ -1,5 +1,6 @@
 import type { DashboardMetric } from "@/lib/mock-data/dashboard-metrics";
-import { MOCK_CONVERSATIONS, MOCK_INVOICES } from "@/lib/mock-data/operations";
+import { MOCK_INVOICES } from "@/lib/mock-data/operations";
+import { CC_STATS } from "@/lib/mock-data/customer-care";
 
 /**
  * Mock values for the Operations Pod's dashboard widgets, in the same
@@ -9,11 +10,9 @@ import { MOCK_CONVERSATIONS, MOCK_INVOICES } from "@/lib/mock-data/operations";
  * conversations and invoices in src/lib/mock-data/operations.ts.
  */
 
-const openConversations = MOCK_CONVERSATIONS.filter(
-  (c) => c.status === "open" || c.status === "pending"
-).length;
+const openConversations = CC_STATS.openCases;
 
-const negativeFlags = MOCK_CONVERSATIONS.filter((c) => c.sentimentFlag === "negative").length;
+const negativeFlags = CC_STATS.negativeCases;
 
 const overdueInvoices = MOCK_INVOICES.filter((i) => i.status === "overdue");
 const outstandingInvoices = MOCK_INVOICES.filter((i) => i.status === "overdue" || i.status === "sent");
@@ -37,7 +36,7 @@ export const OPERATIONS_METRICS: Record<string, DashboardMetric> = {
   "ops.open-conversations": {
     label: "Open conversations",
     value: String(openConversations),
-    context: "Across WhatsApp, email, web chat",
+    context: "Across WhatsApp, Shopify, Instagram, web",
     trend: "down",
     trendValue: "-5",
     trendGood: true,
@@ -46,7 +45,7 @@ export const OPERATIONS_METRICS: Record<string, DashboardMetric> = {
   "ops.negative-sentiment": {
     label: "Negative sentiment flags",
     value: String(negativeFlags),
-    context: "Intercepted in last 7 days",
+    context: "Negative-sentiment cases and reviews flagged",
     trend: "down",
     trendValue: "-2",
     trendGood: true,

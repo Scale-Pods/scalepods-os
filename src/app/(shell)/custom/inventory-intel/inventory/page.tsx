@@ -1,5 +1,5 @@
-import { InventoryTable } from "@/components/custom/inventory-table";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <InventoryTable />;
+  redirect("/operations/inventory/skus");
 }

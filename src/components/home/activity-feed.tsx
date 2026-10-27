@@ -3,7 +3,7 @@
 import { Bot, User } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 import type { AuditLogEntry } from "@/lib/types/core";
 
 export function ActivityFeed({ entries }: { entries: AuditLogEntry[] }) {
@@ -33,7 +33,7 @@ export function ActivityFeed({ entries }: { entries: AuditLogEntry[] }) {
                     <span className="text-muted-foreground">{entry.action}</span>
                   </p>
                   <div className="mt-0.5 flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>{formatRelative(entry.createdAt)}</span>
+                    <span><RelativeTime iso={entry.createdAt} /></span>
                     {entry.costUsd !== undefined && (
                       <>
                         <span>·</span>

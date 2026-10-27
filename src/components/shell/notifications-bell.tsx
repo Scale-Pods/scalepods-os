@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MOCK_APPROVALS } from "@/lib/mock-data/approvals";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 
 export function NotificationsBell() {
   const pending = MOCK_APPROVALS.filter((a) => a.status === "pending");
@@ -45,7 +45,7 @@ export function NotificationsBell() {
               <div className="min-w-0 flex-1">
                 <p className="font-medium leading-snug">{a.title}</p>
                 <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">{a.description}</p>
-                <p className="mt-1 text-[11px] text-muted-foreground">{formatRelative(a.createdAt)}</p>
+                <p className="mt-1 text-[11px] text-muted-foreground"><RelativeTime iso={a.createdAt} /></p>
               </div>
             </Link>
           ))}

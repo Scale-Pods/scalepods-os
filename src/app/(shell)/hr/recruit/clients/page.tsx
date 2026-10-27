@@ -1,5 +1,5 @@
-import { ClientsClient } from "./clients-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <ClientsClient />;
+  redirect("/hr/recruit/campaigns");
 }

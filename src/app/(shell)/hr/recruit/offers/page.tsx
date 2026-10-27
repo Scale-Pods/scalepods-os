@@ -1,5 +1,5 @@
-import { OffersClient } from "./offers-client";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <OffersClient />;
+  redirect("/hr/recruit/offer-letter");
 }

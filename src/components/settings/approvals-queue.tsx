@@ -10,7 +10,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
 import { getAppById } from "@/lib/registry/apps";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 import { MOCK_APPROVALS } from "@/lib/mock-data/approvals";
 import type { Approval } from "@/lib/types/core";
 
@@ -73,7 +73,7 @@ export function ApprovalsQueue() {
                         </div>
                         <p className="text-xs text-muted-foreground">{a.description}</p>
                         <p className="mt-1.5 text-[11px] text-muted-foreground">
-                          {formatRelative(a.createdAt)}
+                          <RelativeTime iso={a.createdAt} />
                         </p>
                       </div>
                       {a.status === "pending" && (

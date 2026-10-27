@@ -1,5 +1,5 @@
-import { InterviewsClient } from "./interviews-client";
+import { InterviewCenter } from "@/components/hr/recruit/interview-center";
 
 export default function Page() {
-  return <InterviewsClient />;
+  return <InterviewCenter />;
 }

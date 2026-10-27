@@ -14,7 +14,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
 import { AuditLogCharts } from "@/components/settings/audit-log-charts";
-import { formatRelative } from "@/lib/format";
+import { RelativeTime } from "@/components/shared/relative-time";
 import { MOCK_AUDIT_LOG } from "@/lib/mock-data/approvals";
 
 export function AuditLogTable() {
@@ -96,7 +96,7 @@ export function AuditLogTable() {
                   <TableCell className="text-muted-foreground">
                     {entry.costUsd ? `$${entry.costUsd.toFixed(4)}` : "—"}
                   </TableCell>
-                  <TableCell className="text-muted-foreground">{formatRelative(entry.createdAt)}</TableCell>
+                  <TableCell className="text-muted-foreground"><RelativeTime iso={entry.createdAt} /></TableCell>
                 </TableRow>
               ))}
             </TableBody>
