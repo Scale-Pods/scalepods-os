@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/shared/brand-logo";
 
 export function LandingNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <div className="flex items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Sparkles className="size-4" />
-          </div>
-          <span className="text-base font-semibold tracking-tight">ScalePods OS</span>
-        </div>
+        <Link href="/" aria-label="ScalePods home" className="flex items-center gap-2">
+          <BrandLogo height={26} priority />
+          <span className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-muted-foreground">OS</span>
+        </Link>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#platform" className="hover:text-foreground transition-colors">Platform</a>
           <a href="#pods" className="hover:text-foreground transition-colors">Pods</a>

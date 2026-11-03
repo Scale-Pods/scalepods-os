@@ -1,11 +1,11 @@
 "use client";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import * as React from "react";
 import Link from "next/link";
 import { toast } from "sonner";
 import {
   Check,
-  Sparkles,
   Users,
   Building,
   Wrench,
@@ -72,8 +72,8 @@ export function OnboardingWizard() {
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 py-10">
       <div className="mb-8 flex items-center gap-2">
-        <Sparkles className="size-5 text-accent" />
-        <span className="text-sm font-semibold">ScalePods OS</span>
+        <BrandLogo height={22} />
+        <span className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-muted-foreground">OS</span>
       </div>
 
       {/* Stepper */}

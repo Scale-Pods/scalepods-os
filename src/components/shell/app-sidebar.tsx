@@ -3,12 +3,13 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogOut, Moon, Sun, Sparkles, ChevronRight, Lock } from "lucide-react";
+import { LogOut, Moon, Sun, ChevronRight, Lock } from "lucide-react";
 import { useTheme } from "next-themes";
 import { AppIcon } from "@/lib/icon";
 import { findAppByPath, isAppUnlocked } from "@/lib/registry/apps";
 import { PODS } from "@/lib/registry/pods";
 import { APP_REGISTRY } from "@/lib/registry/apps";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { AppSwitcher } from "@/components/shell/app-switcher";
 import { CURRENT_USER } from "@/lib/mock-data/orgs";
 import { useOrg } from "@/lib/org-context";
@@ -65,7 +66,11 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="gap-0 p-2">
+      <SidebarHeader className="gap-1 p-2">
+        <Link href="/home/dashboard" aria-label="ScalePods" className="flex h-8 items-center px-2">
+          <BrandLogo height={20} className="group-data-[collapsible=icon]:hidden" />
+          <BrandLogo variant="mark" height={22} className="hidden group-data-[collapsible=icon]:block" />
+        </Link>
         <AppSwitcher />
       </SidebarHeader>
       <SidebarContent className="px-2 gap-0">
@@ -182,8 +187,8 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarFooter className="gap-2 border-t p-2">
         <div className="flex items-center gap-2 px-1 text-[11px] text-muted-foreground">
-          <Sparkles className="size-3 text-accent" />
-          Powered by ScalePods
+          <span className="group-data-[collapsible=icon]:hidden">Powered by</span>
+          <BrandLogo height={12} className="group-data-[collapsible=icon]:hidden" />
         </div>
         <div className="flex items-center gap-2">
           <Button
