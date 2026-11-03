@@ -5,7 +5,7 @@ export const PODS: PodDefinition[] = [
   { id: "sales", label: "Sales Pod", icon: "Target", order: 1 },
   { id: "hr", label: "HR Pod", icon: "Users", order: 2 },
   { id: "marketing", label: "Marketing Pod", icon: "Megaphone", order: 3 },
-  { id: "operations", label: "Operations Pod", icon: "Headset", order: 4 },
+  { id: "operations", label: "Shills Professionals, Mumbai India", icon: "Headset", order: 4 },
   { id: "custom", label: "Custom Studio", icon: "Blocks", order: 5 },
 ];
 

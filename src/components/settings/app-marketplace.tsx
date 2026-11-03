@@ -21,7 +21,7 @@ const POD_TAGLINE: Record<string, string> = {
   sales: "Outbound reach, replies and pipeline",
   hr: "Hiring campaigns, candidates and interviews",
   marketing: "Content production, approvals and publishing",
-  operations: "Support, collections, audits and stock",
+  operations: "Operations Pod · support, collections, audits and stock",
   custom: "Client-specific modules",
 };
 
