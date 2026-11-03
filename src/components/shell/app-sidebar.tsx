@@ -206,7 +206,7 @@ export function AppSidebar() {
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-xs font-medium">{CURRENT_USER.name}</p>
                   <p className="truncate text-[11px] text-muted-foreground">
-                    {CURRENT_USER.role}
+                    {CURRENT_USER.email}
                   </p>
                 </div>
               </button>

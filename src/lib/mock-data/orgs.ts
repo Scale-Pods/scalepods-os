@@ -42,18 +42,16 @@ export const ORGS: Organization[] = [
 ];
 
 export const MEMBERS: Member[] = [
-  { id: "mem-1", orgId: "org-staffing-co", name: "Aisha Khan", email: "aisha@demostaffing.co", role: "owner" },
-  { id: "mem-2", orgId: "org-staffing-co", name: "Rohan Mehta", email: "rohan@demostaffing.co", role: "manager" },
-  { id: "mem-3", orgId: "org-staffing-co", name: "Priya Nair", email: "priya@demostaffing.co", role: "member" },
-  { id: "mem-4", orgId: "org-demo-realty", name: "Omar Al Farsi", email: "omar@demorealty.ae", role: "owner" },
-  { id: "mem-5", orgId: "org-demo-realty", name: "Lina Haddad", email: "lina@demorealty.ae", role: "manager" },
+  { id: "mem-1", orgId: "org-staffing-co", name: "Raunak", email: "raunak@scalepods.co" },
+  { id: "mem-2", orgId: "org-staffing-co", name: "Adnan", email: "adnan@scalepods.co" },
+  { id: "mem-4", orgId: "org-demo-realty", name: "Raunak", email: "raunak@scalepods.co" },
+  { id: "mem-5", orgId: "org-demo-realty", name: "Adnan", email: "adnan@scalepods.co" },
 ];
 
 export const CURRENT_USER = {
   id: "mem-1",
-  name: "Aisha Khan",
-  email: "aisha@demostaffing.co",
-  role: "owner" as const,
+  name: "Raunak",
+  email: "raunak@scalepods.co",
 };
 
 export function getOrg(id: string) {

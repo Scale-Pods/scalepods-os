@@ -60,18 +60,23 @@ export function AppSwitcher() {
       </PopoverTrigger>
       <PopoverContent
         align="start"
-        className="w-80 p-0 max-h-[70vh] overflow-y-auto"
+        sideOffset={8}
+        collisionPadding={12}
+        className="flex w-[22rem] max-w-[calc(100vw-1.5rem)] flex-col gap-0 overflow-hidden p-0"
+        style={{ maxHeight: "min(32rem, calc(100vh - 6rem))" }}
       >
-        <div className="p-2">
-          <p className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
-            Switch app <kbd className="ml-1 rounded border bg-muted px-1 py-0.5 text-[10px]">⌘J</kbd>
-          </p>
-          {PODS.map((pod) => {
+        <div className="flex items-center justify-between border-b px-4 py-2.5">
+          <p className="text-sm font-semibold">Switch app</p>
+          <kbd className="rounded border bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">⌘J</kbd>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2 py-2">
+          {PODS.map((pod, podIdx) => {
             const apps = APP_REGISTRY.filter((a) => a.pod === pod.id);
             if (apps.length === 0) return null;
             return (
-              <div key={pod.id} className="mb-1">
-                <div className="flex items-center gap-1.5 px-2 py-1 text-xs font-medium text-muted-foreground">
+              <div key={pod.id} className={cn(podIdx > 0 && "mt-2 border-t pt-2")}>
+                <div className="flex items-center gap-1.5 px-2 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
                   <AppIcon name={pod.icon} className="size-3.5" />
                   {pod.label}
                 </div>
@@ -88,28 +93,27 @@ export function AppSwitcher() {
                         router.push(app.basePath);
                       }}
                       className={cn(
-                        "flex w-full items-center gap-2.5 rounded-md px-2 py-2 text-left text-sm transition-colors",
-                        unlocked
-                          ? "hover:bg-accent/10 cursor-pointer"
-                          : "cursor-not-allowed opacity-50",
-                        active && "bg-accent/15"
+                        "relative flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition-colors",
+                        unlocked ? "cursor-pointer hover:bg-muted" : "cursor-not-allowed opacity-50",
+                        active && "bg-muted"
                       )}
                     >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-secondary">
-                        <AppIcon name={app.icon} className="size-3.5" />
+                      {active && <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-primary" />}
+                      <div
+                        className={cn(
+                          "flex size-8 shrink-0 items-center justify-center rounded-lg",
+                          active ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
+                        )}
+                      >
+                        <AppIcon name={app.icon} className="size-4" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="truncate font-medium">{app.name}</div>
-                        <div className="truncate text-xs text-muted-foreground">
-                          {app.description}
-                        </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-sm font-medium leading-tight">{app.name}</div>
+                        <div className="mt-0.5 line-clamp-1 text-xs text-muted-foreground">{app.description}</div>
                       </div>
-                      {active && <Check className="size-4 text-accent shrink-0" />}
+                      {active && <Check className="size-4 shrink-0 text-primary" />}
                       {!unlocked && (
-                        <Badge
-                          variant="outline"
-                          className="gap-1 shrink-0 text-[10px] px-1.5 py-0"
-                        >
+                        <Badge variant="outline" className="shrink-0 gap-1 px-1.5 py-0 text-[10px]">
                           <Lock className="size-2.5" />
                           Upgrade
                         </Badge>
@@ -121,11 +125,12 @@ export function AppSwitcher() {
             );
           })}
         </div>
+
         <div className="border-t p-2">
           <Link
             href="/settings/apps"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-medium text-primary hover:bg-accent/10"
+            className="flex items-center justify-center rounded-lg px-2 py-2 text-sm font-medium text-primary hover:bg-muted"
           >
             Browse App Marketplace
           </Link>

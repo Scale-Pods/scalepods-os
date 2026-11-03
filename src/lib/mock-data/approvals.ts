@@ -87,9 +87,8 @@ const STAFFING_ACTORS = [
   { type: "agent" as const, name: "Sequence Personalisation" },
   { type: "agent" as const, name: "Auto-Reply Agent" },
   { type: "agent" as const, name: "Payment Reminder Agent" },
-  { type: "user" as const, name: "Aisha Khan" },
-  { type: "user" as const, name: "Rohan Mehta" },
-  { type: "user" as const, name: "Priya Nair" },
+  { type: "user" as const, name: "Raunak" },
+  { type: "user" as const, name: "Adnan" },
 ];
 
 const STAFFING_ACTIONS = [
@@ -109,8 +108,8 @@ const REALTY_ACTORS = [
   { type: "agent" as const, name: "Lead Response Agent" },
   { type: "agent" as const, name: "Auto-Reply Agent" },
   { type: "agent" as const, name: "Content Draft Agent" },
-  { type: "user" as const, name: "Omar Al Farsi" },
-  { type: "user" as const, name: "Lina Haddad" },
+  { type: "user" as const, name: "Raunak" },
+  { type: "user" as const, name: "Adnan" },
 ];
 
 const REALTY_ACTIONS = [

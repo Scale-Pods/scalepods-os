@@ -92,7 +92,7 @@ export interface Member {
   name: string;
   email: string;
   avatarUrl?: string;
-  role: "owner" | "admin" | "manager" | "member" | "viewer";
+  role?: "owner" | "admin" | "manager" | "member" | "viewer";
 }
 
 export interface Organization {

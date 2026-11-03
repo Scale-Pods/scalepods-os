@@ -85,9 +85,9 @@ export function SettingsView() {
                   <TableRow key={m.id} className="cursor-pointer" onClick={() => setSel(m)}>
                     <TableCell className="font-medium">{m.name}</TableCell>
                     <TableCell className="text-muted-foreground">{m.email}</TableCell>
-                    <TableCell className="capitalize">{m.role}</TableCell>
-                    <TableCell>{access(m.role).board}</TableCell>
-                    <TableCell>{access(m.role).content}</TableCell>
+                    <TableCell className="capitalize">{(m.role ?? "member")}</TableCell>
+                    <TableCell>{access((m.role ?? "member")).board}</TableCell>
+                    <TableCell>{access((m.role ?? "member")).content}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -105,11 +105,11 @@ export function SettingsView() {
                 <DialogDescription>{sel.email}</DialogDescription>
               </DialogHeader>
               <div className="divide-y rounded-lg border px-3 text-sm">
-                <Field label="Role"><span className="capitalize">{sel.role}</span></Field>
-                <Field label="Board access">{access(sel.role).board}</Field>
-                <Field label="Content access">{access(sel.role).content}</Field>
-                <Field label="Settings access">{access(sel.role).settings}</Field>
-                <Field label="Can act as checker">{sel.role === "member" ? "No" : "Yes"}</Field>
+                <Field label="Role"><span className="capitalize">{(sel.role ?? "member")}</span></Field>
+                <Field label="Board access">{access((sel.role ?? "member")).board}</Field>
+                <Field label="Content access">{access((sel.role ?? "member")).content}</Field>
+                <Field label="Settings access">{access((sel.role ?? "member")).settings}</Field>
+                <Field label="Can act as checker">{(sel.role ?? "member") === "member" ? "No" : "Yes"}</Field>
               </div>
             </>
           )}
