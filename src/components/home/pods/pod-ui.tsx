@@ -14,7 +14,7 @@ const POD_TAGLINE: Record<string, string> = {
   sales: "Outbound reach, replies and pipeline across every channel",
   hr: "Hiring campaigns, candidate pipeline and interviews",
   marketing: "Content production, approvals and publishing performance",
-  operations: "Operations Pod · support, collections, audits and stock",
+  operations: "Support, collections, audits and stock",
 };
 
 /** One big labelled band per pod, so every app below it reads as belonging to that pod. */

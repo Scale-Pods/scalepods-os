@@ -42,6 +42,16 @@ const CASES = [
       { label: "Avg. days to pay", value: "-6.1%" },
     ],
   },
+  {
+    name: "Shills Professionals",
+    location: "Mumbai, India",
+    pod: "Operations Pod",
+    stats: [
+      { label: "Support auto-resolved", value: "78%" },
+      { label: "Avg. first response", value: "2.8 min" },
+      { label: "Customer CSAT", value: "4.82/5" },
+    ],
+  },
 ];
 
 export function CaseStudies() {
@@ -56,9 +66,9 @@ export function CaseStudies() {
             Trusted by lean teams across three continents
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {CASES.map((c) => (
-            <Card key={c.name}>
+            <Card key={c.name} className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]">
               <CardContent className="px-5">
                 <div className="flex items-start justify-between">
                   <div>
